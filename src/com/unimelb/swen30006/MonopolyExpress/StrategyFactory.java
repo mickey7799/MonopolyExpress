@@ -20,14 +20,14 @@ public class StrategyFactory {
 		if(turns %2 !=0 && turns %3 !=0 )
 			scoringStrategy = new EveryTurnsStrategy();
 		else {
-			IScoringStrategy everyTurnsStrategy = new EveryTurnsStrategy();
-			IScoringStrategy secondTurnsStrategy = new SecondTurnsStrategy();
-			IScoringStrategy thirdTurnsStrategy = new ThirdTurnsStrategy();
+			//IScoringStrategy everyTurnsStrategy = new EveryTurnsStrategy();
+			//IScoringStrategy secondTurnsStrategy = new SecondTurnsStrategy();
+			//IScoringStrategy thirdTurnsStrategy = new ThirdTurnsStrategy();
 			CompositeStrategy compositeStrategy = new CompositeStrategy();
 			
-			compositeStrategy.add(everyTurnsStrategy);
-			compositeStrategy.add(secondTurnsStrategy);
-			compositeStrategy.add(thirdTurnsStrategy);
+			compositeStrategy.add(new EveryTurnsStrategy());
+			compositeStrategy.add(new SecondTurnsStrategy());
+			compositeStrategy.add(new ThirdTurnsStrategy());
 			
 			scoringStrategy = (IScoringStrategy) compositeStrategy;
 		}
